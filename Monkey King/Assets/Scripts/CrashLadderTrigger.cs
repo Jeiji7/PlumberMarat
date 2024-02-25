@@ -1,19 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveMarioOnLadder : MonoBehaviour
+public class CrashLadder : MonoBehaviour
 {
     [SerializeField] bool isDownTrigger;
     public bool isPlayerOnLadder = false;
     public Move playerMove;
     public GameObject InvisibleWall;
 
+    void Start()
+    {
+        InvisibleWall.SetActive(false);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            isPlayerOnLadder = true; 
+            isPlayerOnLadder = true;
             print("1");
             InvisibleWall.SetActive(true);
         }
@@ -23,10 +25,10 @@ public class MoveMarioOnLadder : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isPlayerOnLadder = false; 
+            isPlayerOnLadder = false;
             playerMove.canHorizontalMove = true;
             print("0");
-            //InvisibleWall.SetActive(false);
+            InvisibleWall.SetActive(false);
         }
     }
     void Update()
@@ -37,19 +39,14 @@ public class MoveMarioOnLadder : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                 {
-                    //print("ON Ladder");
                     playerMove.onLadder = true;
                 }
 
                 if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
-                    //print("Out Ladder");
                     playerMove.onLadder = false;
                 }
             }
         }
     }
-
 }
-
-

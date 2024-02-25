@@ -1,38 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class ExitMarioWithLadder : MonoBehaviour
+public class CrashLaddertriggerUp : MonoBehaviour
 {
     [SerializeField] bool isUpTrigger;
-    private bool isPlayerOnLadder = false;
+    public bool isPlayerOnLadder = false;
     public Move playerMove;
     public GameObject flootLadder;
-    public GameObject SecondTrigger;
-    public MiddleTriggerLadder thirdTrigger;
+    public GameObject InvisibleWall;
 
+    void Start()
+    {
+        InvisibleWall.SetActive(false);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             isPlayerOnLadder = true;
-            playerMove.onLadder = true;
-            flootLadder.GetComponent<PolygonCollider2D>().enabled = false;
             print("1");
+            InvisibleWall.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            isPlayerOnLadder = false; 
-            playerMove.canHorizontalMove = true;
+            isPlayerOnLadder = false;
             flootLadder.GetComponent<PolygonCollider2D>().enabled = true;
             playerMove.onLadder = false;
             print("0");
-            SecondTrigger.SetActive(false);
-            thirdTrigger.ThirdTrigger.SetActive(true);
+            InvisibleWall.SetActive(false);
         }
     }
     void Update()
@@ -41,13 +38,11 @@ public class ExitMarioWithLadder : MonoBehaviour
         {
             if (isUpTrigger)
             {
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+                if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                 {
+                    playerMove.canHorizontalMove = false;
                     playerMove.onLadder = true;
-                }
-                if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-                {
-                    playerMove.onLadder = true;
+                    flootLadder.GetComponent<PolygonCollider2D>().enabled = false;
                 }
             }
         }

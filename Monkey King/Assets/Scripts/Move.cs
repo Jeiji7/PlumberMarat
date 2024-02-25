@@ -43,12 +43,9 @@ public class Move : MonoBehaviour
                 rb.AddForce(new Vector2(0, 2200));
             }
         }
-
-        //isLadder = Physics2D.OverlapCircle(ladderCheck.position, 0.2f, ladderLayer);
         if (onLadder == true)
         {
             canHorizontalMove = false;
-            //rb.velocity.x = 0f;   
             rb.gravityScale = 0;
             rb.velocity = new Vector2(0, moveLadder * PlayerLadder);
         }
