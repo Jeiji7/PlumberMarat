@@ -12,7 +12,7 @@ public class MiddleTriggerLadder : MonoBehaviour
 
     void Start()
     {
-        ThirdTrigger.SetActive(false);
+        //ThirdTrigger.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
