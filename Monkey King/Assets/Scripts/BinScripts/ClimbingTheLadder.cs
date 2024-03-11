@@ -5,10 +5,11 @@ public class ClimbingTheStairs : MonoBehaviour
     [SerializeField] bool isDownTrigger;
     public bool isPlayerOnLadder = false;
     public Move playerMove;
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && playerMove.groundCheck == true)
         {
             isPlayerOnLadder = true;
             isDownTrigger = true;

@@ -12,7 +12,8 @@ public class Move : MonoBehaviour
 
     public Transform groundCheck;
     public LayerMask groundLayer;
-    private bool isGrounded;
+    public static bool isGrounded;
+    
 
     public bool onLadder;
     public bool canHorizontalMove = true;

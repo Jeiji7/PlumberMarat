@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class CrashLadder : MonoBehaviour
 {
-    [SerializeField] bool isDownTrigger;
     public bool isPlayerOnLadder = false;
     public Move playerMove;
     public GameObject InvisibleWall;
@@ -33,19 +32,16 @@ public class CrashLadder : MonoBehaviour
     }
     void Update()
     {
-        if (isPlayerOnLadder)
+        if (isPlayerOnLadder && Move.isGrounded)
         {
-            if (isDownTrigger)
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-                {
-                    playerMove.onLadder = true;
-                }
+                playerMove.onLadder = true;
+            }
 
-                if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-                {
-                    playerMove.onLadder = false;
-                }
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            {
+                playerMove.onLadder = false;
             }
         }
     }
