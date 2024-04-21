@@ -13,7 +13,7 @@ public class Exit_Lader : MonoBehaviour
     {
         boxCollider2D = GetComponent<BoxCollider2D>();
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -24,7 +24,7 @@ public class Exit_Lader : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("LadderTrigger"))
+        if (collision.CompareTag("LadderTrigger") || collision.CompareTag("Player"))
         {
             onLadder = false;
             playerMove.onLadder = false;
