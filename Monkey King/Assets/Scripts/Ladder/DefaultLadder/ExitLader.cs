@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Exit_Lader : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class Exit_Lader : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             onLadder = true;
-            Debug.Log(1);
         }
     }
 
@@ -28,9 +28,10 @@ public class Exit_Lader : MonoBehaviour
         {
             onLadder = false;
             playerMove.onLadder = false;
-            floot.GetComponent<PolygonCollider2D>().enabled = true;
+            floot.GetComponent<BoxCollider2D>().enabled = true;
             boxCollider2D.enabled = false;
             boxCollider2D.enabled = true;
+            Move.isGrounded = false;
             Debug.Log(2);
         }
     }
@@ -40,17 +41,18 @@ public class Exit_Lader : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                floot.GetComponent<PolygonCollider2D>().enabled = false;
+                floot.GetComponent<BoxCollider2D>().enabled = false;
                 playerMove.onLadder = true;
+                Move.isGrounded = false;
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                floot.GetComponent<PolygonCollider2D>().enabled = false;
+                floot.GetComponent<BoxCollider2D>().enabled = false;
                 playerMove.onLadder = true;
             }
-            if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))
             {
-                floot.GetComponent<PolygonCollider2D>().enabled = true;
+                floot.GetComponent<BoxCollider2D>().enabled = true;
                 playerMove.onLadder = false;
             }
         }

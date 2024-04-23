@@ -12,6 +12,7 @@ public class Move : MonoBehaviour
 
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public BoxCollider2D groundCollider;
     public static bool isGrounded;
     
 
@@ -38,6 +39,7 @@ public class Move : MonoBehaviour
             else if (move > 0)
                 transform.localScale = new Vector3(1, 1, 1);
 
+            //isGrounded = Physics2D.OverlapBox(groundCheck.position, groundCollider.size, 90, groundLayer);
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.3f, groundLayer);
             if (isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
