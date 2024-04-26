@@ -25,7 +25,7 @@ public class CrashLaddertriggerUp : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isPlayerOnLadder = false;
-            flootLadder.GetComponent<PolygonCollider2D>().enabled = true;
+            flootLadder.GetComponent<BoxCollider2D>().enabled = true;
             playerMove.onLadder = false;
             print("0");
             InvisibleWall.SetActive(false);
@@ -39,7 +39,7 @@ public class CrashLaddertriggerUp : MonoBehaviour
             {
                 playerMove.canHorizontalMove = false;
                 playerMove.onLadder = true;
-                flootLadder.GetComponent<PolygonCollider2D>().enabled = false;
+                flootLadder.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
     }

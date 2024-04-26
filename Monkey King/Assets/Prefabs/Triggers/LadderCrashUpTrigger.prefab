@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5465271245385084297
+--- !u!1 &5046521305814108505
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8651378487730684349}
-  - component: {fileID: 5019889292964589166}
-  - component: {fileID: 257749522657247999}
+  - component: {fileID: 4658108363603205765}
+  - component: {fileID: 113510407369405239}
+  - component: {fileID: 5959417385077922348}
   m_Layer: 0
   m_Name: LadderCrashUpTrigger
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8651378487730684349
+--- !u!4 &4658108363603205765
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5465271245385084297}
+  m_GameObject: {fileID: 5046521305814108505}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.7583399, y: 2.09898, z: 1.7076222}
@@ -33,30 +33,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5019889292964589166
+--- !u!114 &113510407369405239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5465271245385084297}
+  m_GameObject: {fileID: 5046521305814108505}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c4563a5388eb6743b2f8082f09a19ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUpTrigger: 0
   isPlayerOnLadder: 0
   playerMove: {fileID: 0}
   flootLadder: {fileID: 0}
   InvisibleWall: {fileID: 0}
---- !u!60 &257749522657247999
-PolygonCollider2D:
+--- !u!61 &5959417385077922348
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5465271245385084297}
+  m_GameObject: {fileID: 5046521305814108505}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -82,7 +81,7 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.1697573, y: 0.20370173}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -92,11 +91,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
-  m_UseDelaunayMesh: 0
+  serializedVersion: 2
+  m_Size: {x: 0.608263, y: 2.472916}
+  m_EdgeRadius: 0
