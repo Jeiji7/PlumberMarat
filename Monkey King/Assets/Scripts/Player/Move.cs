@@ -6,15 +6,15 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    public int speedPlayer = 30;
+    public float speedPlayer = 30;
     public int PlayerLadder = 5;
     private Rigidbody2D rb;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
-    public BoxCollider2D groundCollider;
+    //public BoxCollider2D groundCollider;
     public static bool isGrounded;
-    
+
 
     public bool onLadder;
     public bool canHorizontalMove = true;
@@ -33,7 +33,7 @@ public class Move : MonoBehaviour
             rb.velocity = new Vector2(move * speedPlayer, rb.velocity.y);
 
             if (move < 0)
-            {
+            { 
                 transform.localScale = new Vector3(-1, 1, 1);
             }
             else if (move > 0)
@@ -43,7 +43,7 @@ public class Move : MonoBehaviour
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.3f, groundLayer);
             if (isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
-                rb.AddForce(new Vector2(0, 2200));
+                rb.AddForce(new Vector2(0, 2400));
             }
         }
         if (onLadder == true)
