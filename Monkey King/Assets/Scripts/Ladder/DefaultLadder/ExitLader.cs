@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 public class Exit_Lader : MonoBehaviour
 {
     private BoxCollider2D boxCollider2D;
-    public bool isAscendingUp = false;
+    public static bool isDown = false;
     public Move playerMove;
     public bool onLadder = false;
     public GameObject floot;
@@ -19,6 +19,7 @@ public class Exit_Lader : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             onLadder = true;
+            isDown = true;
         }
     }
 
@@ -26,6 +27,7 @@ public class Exit_Lader : MonoBehaviour
     {
         if (collision.CompareTag("LadderTrigger") || collision.CompareTag("Player"))
         {
+            isDown = false;
             onLadder = false;
             playerMove.onLadder = false;
             floot.GetComponent<BoxCollider2D>().enabled = true;
@@ -56,9 +58,5 @@ public class Exit_Lader : MonoBehaviour
                 playerMove.onLadder = false;
             }
         }
-        //if (isAscendingUp)
-        //{
-        //    playerMove.onLadder = false;
-        //}
     }
 }
