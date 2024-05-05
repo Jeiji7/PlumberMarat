@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class Exit_Lader : MonoBehaviour
 {
+    public Animator MarioAnimation;
     private BoxCollider2D boxCollider2D;
     public static bool isDown = false;
     public Move playerMove;
@@ -21,9 +22,10 @@ public class Exit_Lader : MonoBehaviour
             onLadder = true;
             isDown = true;
         }
+
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+        private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("LadderTrigger") || collision.CompareTag("Player"))
         {
@@ -43,12 +45,16 @@ public class Exit_Lader : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
+                MarioAnimation.SetBool("isLadderAnim", false);
+                MarioAnimation.SetFloat("isClimbAnim", 1);
                 floot.GetComponent<BoxCollider2D>().enabled = false;
                 playerMove.onLadder = true;
                 Move.isGrounded = false;
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
+                MarioAnimation.SetBool("isLadderAnim", false);
+                MarioAnimation.SetFloat("isClimbAnim", -1);
                 floot.GetComponent<BoxCollider2D>().enabled = false;
                 playerMove.onLadder = true;
             }

@@ -29,7 +29,7 @@ public class DeadPlayer : MonoBehaviour
         //print("1: " +  maxPosY);
         //print("2: " + transform.position.y);
         float distanceTraveled = Mathf.Max(0, maxPosY - transform.position.y); 
-        print("3: "+ distanceTraveled);
+        //print("3: "+ distanceTraveled);
         if (distanceTraveled > deathDistance && Exit_Lader.isDown == false)
         {
             Die(); // Запускаем "смерть" персонажа
@@ -37,6 +37,6 @@ public class DeadPlayer : MonoBehaviour
     }
     public void Die()
     {
-        print("Ты умер");
+        //print("Ты умер");
     }
 }

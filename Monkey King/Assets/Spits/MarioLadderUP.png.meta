@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 296619f493dd5d440ba511f24ce681bb
+guid: 3e4e07d38e158f445854a1dc13fab78f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,169 +123,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_0"
+      name: MarioLadderUP_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64be69fdc23e13c488c58411d6bda096
-      internalID: -2081551257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_1"
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 0
-        width: 12
+        x: 3
+        y: 2
+        width: 13
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 717d9aa26c73f87468872426f790e0cc
-      internalID: 1282298556
+      spriteID: 8eb4f6dd0aa10e4438058796e5c0acd6
+      internalID: -134320239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_2"
+      name: MarioLadderUP_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 15
+        x: 20
+        y: 2
+        width: 13
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd255b20dfc6c5b418af89d9160f3ed8
-      internalID: 1140229342
+      spriteID: 46f2e84bed59f6a4787627fd053644ba
+      internalID: -1988012079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_3"
+      name: MarioLadderUP_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 2
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b68bb7793429a4c988fa0719bd5601
+      internalID: 1105093241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MarioLadderUP_3
       rect:
         serializedVersion: 2
         x: 50
-        y: 0
-        width: 12
-        height: 16
+        y: 4
+        width: 16
+        height: 12
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62a31bb799488084b83462bb6e9c6b2b
-      internalID: -279154970
+      spriteID: b015da76ba7267a498e67146d72e1ff9
+      internalID: 338275780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_4"
+      name: MarioLadderUP_4
       rect:
         serializedVersion: 2
-        x: 65
-        y: 0
-        width: 15
-        height: 15
+        x: 67
+        y: 2
+        width: 14
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5f08463f5f8bab449a5f31feab040ab
-      internalID: 583772595
+      spriteID: 15fbd21040a11b948af228fc6b28c4cf
+      internalID: -1552478913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_5"
+      name: MarioLadderUP_5
       rect:
         serializedVersion: 2
-        x: 82
-        y: 0
-        width: 12
+        x: 83
+        y: 2
+        width: 13
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5da248766bd2a94d8a550f8621c5450
-      internalID: 1975305509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_6"
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 042ed924446d6924bbeaf87ffeffd843
-      internalID: -1120787668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_7"
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 0
-        width: 12
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea7d69a99b313ff419435dd0f3c45d96
-      internalID: -2074526923
+      spriteID: 0bfbbf747a1a36a4699852b2b63d96ad
+      internalID: -850532942
       vertices: []
       indices: 
       edges: []
@@ -301,14 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_0": -2081551257
-      "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_1": 1282298556
-      "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_2": 1140229342
-      "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_3": -279154970
-      "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_4": 583772595
-      "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_5": 1975305509
-      "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_6": -1120787668
-      "\u043C\u0430\u0440\u0438\u043E\u0431\u0435\u0433_7": -2074526923
+      MarioLadderUP_0: -134320239
+      MarioLadderUP_1: -1988012079
+      MarioLadderUP_2: 1105093241
+      MarioLadderUP_3: 338275780
+      MarioLadderUP_4: -1552478913
+      MarioLadderUP_5: -850532942
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
