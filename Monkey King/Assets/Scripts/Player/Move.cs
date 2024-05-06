@@ -78,7 +78,16 @@ public class Move : MonoBehaviour
         // Управление движением по лестнице
         if (onLadder)
         {
-            MarioAnimation.SetBool("isLadderAnim", true);
+            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                MarioAnimation.SetBool("isLadderAnim", true);
+                MarioAnimation.SetFloat("isClimbAnim", 1);
+            }
+            else
+            {
+                MarioAnimation.SetBool("isLadderAnim", true);
+            }
+
             canHorizontalMove = false;
             rb.gravityScale = 0;
             rb.velocity = new Vector2(0, moveLadder * PlayerLadder);

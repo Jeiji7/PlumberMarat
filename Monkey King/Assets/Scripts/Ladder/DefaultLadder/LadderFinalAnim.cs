@@ -11,6 +11,7 @@ public class LadderFinalAnim : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             upAnimation = true;
+            MarioAnimation.SetFloat("isClimbAnim", 0);
         }
 
     }
@@ -19,7 +20,7 @@ public class LadderFinalAnim : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            MarioAnimation.SetFloat("isClimbAnim", 1);
+            MarioAnimation.SetBool("isLadderAnim", false);
         }
     }
 
@@ -29,12 +30,10 @@ public class LadderFinalAnim : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
-                MarioAnimation.SetFloat("isClimbAnim", 0);
                 MarioAnimation.SetFloat("FinalClimb", 1);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
-                MarioAnimation.SetFloat("isClimbAnim", 0);
                 MarioAnimation.SetFloat("FinalClimb", -1);
             }
         }
