@@ -31,7 +31,6 @@ public class Exit_Lader : MonoBehaviour
         if (collision.CompareTag("LadderTrigger") || collision.CompareTag("Player"))
         {
             MarioAnimation.SetFloat("isClimbAnim", 0);
-            MarioAnimation.SetBool("isLadderAnim", false);
             isDown = false;
             onLadder = false;
             playerMove.onLadder = false;
@@ -46,18 +45,27 @@ public class Exit_Lader : MonoBehaviour
     {
         if (onLadder && Move.isGrounded)
         {
+            Bounds colliderBounds = boxCollider2D.bounds;
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
-                //MarioAnimation.SetBool("isLadderAnim", false);
-                
+                // Рассчитываем центр коллайдера
+                Vector3 triggerCenter = new Vector3(colliderBounds.center.x, Move.tr.position.y, Move.tr.position.z);
+                // Устанавливаем позицию персонажа в центр триггера
+                Move.tr.position = triggerCenter;
+                MarioAnimation.SetBool("isLadderAnim", true);
+                MarioAnimation.SetFloat("isClimbAnim", 1);
                 floot.GetComponent<BoxCollider2D>().enabled = false;
                 playerMove.onLadder = true;
                 Move.isGrounded = false;
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                //MarioAnimation.SetBool("isLadderAnim", false);
-                //MarioAnimation.SetFloat("isClimbAnim", -1);
+                Vector3 triggerCenter = new Vector3(colliderBounds.center.x, Move.tr.position.y, Move.tr.position.z);
+
+                // Устанавливаем позицию персонажа в центр триггера
+                Move.tr.position = triggerCenter;
+                MarioAnimation.SetBool("isLadderAnim", true);
+                MarioAnimation.SetFloat("isClimbAnim", 1);
                 floot.GetComponent<BoxCollider2D>().enabled = false;
                 playerMove.onLadder = true;
             }

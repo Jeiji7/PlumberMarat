@@ -18,9 +18,11 @@ public class LadderFinalAnim : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("LadderTrigger"))
         {
-            MarioAnimation.SetBool("isLadderAnim", false);
+            MarioAnimation.SetFloat("FinalClimb", 0);
+            MarioAnimation.SetFloat("isClimbAnim", 0);
+            Move.LadderFinal = false;
         }
     }
 
@@ -30,11 +32,12 @@ public class LadderFinalAnim : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
-                MarioAnimation.SetFloat("FinalClimb", 1);
+
+                Move.LadderFinal = true;
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
             {
-                MarioAnimation.SetFloat("FinalClimb", -1);
+                Move.LadderFinal = true;
             }
         }
     }

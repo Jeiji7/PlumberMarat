@@ -8,12 +8,13 @@ public class Move : MonoBehaviour
 {
     [Header("Animation")]
     public Animator MarioAnimation;
+    public static bool LadderFinal = false;
 
     [Header("’одьба")]
     public float speedPlayer = 30;
     public int PlayerLadder = 5;
     private Rigidbody2D rb;
-    private Transform tr;
+    public static Transform tr;
 
     public Transform groundCheck;
     public LayerMask groundLayer;
@@ -78,16 +79,16 @@ public class Move : MonoBehaviour
         // ”правление движением по лестнице
         if (onLadder)
         {
-            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                MarioAnimation.SetBool("isLadderAnim", true);
                 MarioAnimation.SetFloat("isClimbAnim", 1);
             }
             else
             {
+                MarioAnimation.SetFloat("isClimbAnim", 0);
                 MarioAnimation.SetBool("isLadderAnim", true);
             }
-
             canHorizontalMove = false;
             rb.gravityScale = 0;
             rb.velocity = new Vector2(0, moveLadder * PlayerLadder);
