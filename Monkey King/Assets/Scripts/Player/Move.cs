@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -10,25 +11,27 @@ public class Move : MonoBehaviour
     public Animator MarioAnimation;
     public static bool LadderFinal = false;
 
-    [Header("Ходьба")]
+    [Header("Move")]
     public float speedPlayer = 30;
     public int PlayerLadder = 5;
     private Rigidbody2D rb;
     public static Transform tr;
 
+    [Header("Floot")]
     public Transform groundCheck;
     public LayerMask groundLayer;
     public static bool isGrounded;
 
     public bool isJumping = false;
 
+    [Header("Ladder")]
     public bool onLadder;
     public bool canHorizontalMove = true;
 
     [Header("Отскок от стены")]
     public bool isTouchingWall = false; // открывает доступ к отскоку
     public bool canTouchingWall = true; //отслеживает можно ли нам взаимодействовать со стеной
-    public float wallJumpForce = 1f; // Сила отскока от стены
+    public float wallJumpForce = 0.9f; // Сила отскока от стены
 
     private bool isWallJumping = false; // блокировка движений при отскоке
     void Start()
@@ -47,33 +50,39 @@ public class Move : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.K)) 
+        {
+            StatsMario.MarioPoints += 100;
+            StatsMario.MarioBonus -= 100;
+        }
         float moveLadder = Input.GetAxis("Vertical");
         if (canHorizontalMove && !isWallJumping)
         {
-            float move = Input.GetAxis("Horizontal");
-            MarioAnimation.SetFloat("isMoveAnim", MathF.Abs(move));
-            rb.velocity = new Vector2(move * speedPlayer, rb.velocity.y);
-            // Поворот персонажа только при движении
-            if (move < 0)
-                tr.localScale = new Vector3(-1, 1, 1);
-            else if (move > 0)
-                tr.localScale = new Vector3(1, 1, 1);
+            if (DeadPlayer.dontMove == false)
+            {
+                float move = Input.GetAxis("Horizontal");
+                MarioAnimation.SetFloat("isMoveAnim", MathF.Abs(move));
+                rb.velocity = new Vector2(move * speedPlayer, rb.velocity.y);
+                // Поворот персонажа только при движении
+                if (move < 0)
+                    tr.localScale = new Vector3(-1, 1, 1);
+                else if (move > 0)
+                    tr.localScale = new Vector3(1, 1, 1);
+            }
+            else
+            {
+                MarioAnimation.SetFloat("isMoveAnim", 0);
+                return;
+            }
+
 
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.3f, groundLayer);
 
             // Прыжок при наличии земли
             if (isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
-                rb.AddForce(new Vector2(0, 2800));
+                StartCoroutine(Jumping());
             }
-            //if(isGrounded == false)
-            //{
-            //    MarioAnimation.SetBool("isJumpAnim", true);
-            //}
-            //else
-            //{
-            //    MarioAnimation.SetBool("isJumpAnim", false);
-            //}
         }
 
         // Управление движением по лестнице
@@ -111,18 +120,30 @@ public class Move : MonoBehaviour
             StartCoroutine(EnableWallJump());
         }
         isTouchingWall = false;
+
     }
 
     // Включение возможности отскока от стены после некоторого времени
     private IEnumerator EnableWallJump()
     {
         isWallJumping = true;
-        MarioAnimation.SetBool("isJumpAnim", true);
+        MarioAnimation.SetFloat("isJumpAnim", 1);
         rb.velocity = new Vector2(tr.localScale.x * wallJumpForce, rb.velocity.y);
         yield return new WaitForSeconds(0.3f); // Измените время по вашему усмотрению
         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
-        MarioAnimation.SetBool("isJumpAnim", false);
+        MarioAnimation.SetFloat("isJumpAnim", 0);
         canTouchingWall = true;
         isWallJumping = false;
     }
+    private IEnumerator Jumping()
+    {
+        MarioAnimation.SetFloat("isJumpAnim", 1);
+        rb.AddForce(new Vector2(0, 2800));
+        yield return new WaitForSeconds(0.72f);
+        MarioAnimation.SetFloat("isJumpAnim", 0);
+        MarioAnimation.SetBool("finalJump", true);
+        yield return new WaitForSeconds(0.08f);
+        MarioAnimation.SetBool("finalJump", false);
+    }
+
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CrashLadder : MonoBehaviour
 {
+    public Animator MarioAnimation;
     private BoxCollider2D boxCollider2D;
     public bool isPlayerOnLadder = false;
     public Move playerMove;
@@ -16,9 +17,10 @@ public class CrashLadder : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            MarioAnimation.SetFloat("isClimbAnim", 1);
             isPlayerOnLadder = true;
             print("1");
-            InvisibleWall.SetActive(true);
+            
         }
     }
 
@@ -26,6 +28,7 @@ public class CrashLadder : MonoBehaviour
     {
         if (collision.CompareTag("LadderTrigger") || collision.CompareTag("Player"))
         {
+            MarioAnimation.SetFloat("isClimbAnim", 0);
             Exit_Lader.isDown = false;
             isPlayerOnLadder = false;
             playerMove.onLadder = false;
@@ -41,10 +44,18 @@ public class CrashLadder : MonoBehaviour
     {
         if (isPlayerOnLadder && Move.isGrounded)
         {
+            Bounds colliderBounds = boxCollider2D.bounds;
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
+                // Рассчитываем центр коллайдера
+                Vector3 triggerCenter = new Vector3(colliderBounds.center.x, Move.tr.position.y, Move.tr.position.z);
+                // Устанавливаем позицию персонажа в центр триггера
+                Move.tr.position = triggerCenter;
+                MarioAnimation.SetBool("isLadderAnim", true);
+                MarioAnimation.SetFloat("isClimbAnim", 1);
                 playerMove.onLadder = true;
                 Move.isGrounded = false;
+                InvisibleWall.SetActive(true);
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {

@@ -62,7 +62,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0070815086, y: 0.6197281}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85cc60fc49f254245a8735e034d2f9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDownTrigger: 0
+  MarioAnimation: {fileID: 0}
   isPlayerOnLadder: 0
   playerMove: {fileID: 0}
   InvisibleWall: {fileID: 0}
