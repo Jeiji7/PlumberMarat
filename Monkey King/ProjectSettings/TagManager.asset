@@ -8,6 +8,7 @@ TagManager:
   - Ladder
   - LadderTrigger
   - Wall
+  - BarrelTrigger
   layers:
   - Default
   - TransparentFX

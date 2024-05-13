@@ -11,6 +11,10 @@ public class Move : MonoBehaviour
     public Animator MarioAnimation;
     public static bool LadderFinal = false;
 
+    [Header("Attack")]
+    public Animator MolotAnim;
+    public GameObject Molot;
+
     [Header("Move")]
     public float speedPlayer = 30;
     public int PlayerLadder = 5;
@@ -58,9 +62,9 @@ public class Move : MonoBehaviour
         float moveLadder = Input.GetAxis("Vertical");
         if (canHorizontalMove && !isWallJumping)
         {
-            if (DeadPlayer.dontMove == false)
+            float move = Input.GetAxis("Horizontal");
+            if (DeadPlayer.dontMove == false && AttackPlayer.activeAttack == false)
             {
-                float move = Input.GetAxis("Horizontal");
                 MarioAnimation.SetFloat("isMoveAnim", MathF.Abs(move));
                 rb.velocity = new Vector2(move * speedPlayer, rb.velocity.y);
                 // Поворот персонажа только при движении
@@ -69,8 +73,30 @@ public class Move : MonoBehaviour
                 else if (move > 0)
                     tr.localScale = new Vector3(1, 1, 1);
             }
-            else
+            else if(DeadPlayer.dontMove == false && AttackPlayer.activeAttack == true)
             {
+                MarioAnimation.SetFloat("AttackMoveMario", MathF.Abs(move));
+                //MarioAnimation.SetBool("AttackActive", false);
+                rb.velocity = new Vector2(move * speedPlayer, rb.velocity.y);
+                // Поворот персонажа только при движении
+                if (move < 0)
+                    tr.localScale = new Vector3(-1, 1, 1);
+                else if (move > 0)
+                    tr.localScale = new Vector3(1, 1, 1);
+            }
+            else if(DeadPlayer.dontMove == true && AttackPlayer.activeAttack == true)
+            {
+                MarioAnimation.SetFloat("AttackMoveMario", 0);
+                MarioAnimation.SetBool("AttackActive", false);
+                Molot.SetActive(false);
+                MolotAnim.SetBool("Active", false);
+                MarioAnimation.SetFloat("AttackMoveMario", 0);
+                MarioAnimation.SetFloat("isMoveAnim", 0);
+                return;
+            }
+            else if (DeadPlayer.dontMove == true && AttackPlayer.activeAttack == false)
+            {
+                MarioAnimation.SetFloat("AttackMoveMario", 0);
                 MarioAnimation.SetFloat("isMoveAnim", 0);
                 return;
             }
@@ -79,14 +105,14 @@ public class Move : MonoBehaviour
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.3f, groundLayer);
 
             // Прыжок при наличии земли
-            if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+            if (isGrounded && Input.GetKeyDown(KeyCode.Space) && AttackPlayer.activeAttack == false)
             {
                 StartCoroutine(Jumping());
             }
         }
 
         // Управление движением по лестнице
-        if (onLadder)
+        if (onLadder && AttackPlayer.activeAttack == false)
         {
 
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
