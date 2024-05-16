@@ -15,21 +15,38 @@ public class AttackPlayer : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            MarioAnim.SetFloat("isMoveAnim", 0);
-            Molot.SetActive(true);
-            activeAttack = true;
-            MarioAnim.SetBool("AttackActive", true);
-            MolotAnim.SetBool("Active",true);
-        }
-        else if(Input.GetKeyDown(KeyCode.H))
-        {
-            activeAttack = false;
-            MarioAnim.SetFloat("AttackMoveMario", 0);
-            MarioAnim.SetBool("AttackActive", false);
-            MolotAnim.SetBool("Active", false);
-            Molot.SetActive(false);
-        }
+        if (MolotTrigger.ActiveMolot == true)
+            StartCoroutine(Attack());
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    MarioAnim.SetFloat("isMoveAnim", 0);
+        //    Molot.SetActive(true);
+        //    activeAttack = true;
+        //    MarioAnim.SetBool("AttackActive", true);
+        //    MolotAnim.SetBool("Active",true);
+        //}
+        //else if(Input.GetKeyDown(KeyCode.H))
+        //{
+        //    activeAttack = false;
+        //    MarioAnim.SetFloat("AttackMoveMario", 0);
+        //    MarioAnim.SetBool("AttackActive", false);
+        //    MolotAnim.SetBool("Active", false);
+        //    Molot.SetActive(false);
+        //}
+    }
+    public IEnumerator Attack()
+    {
+        MarioAnim.SetFloat("isMoveAnim", 0);
+        Molot.SetActive(true);
+        activeAttack = true;
+        MarioAnim.SetBool("AttackActive", true);
+        MolotAnim.SetBool("Active", true);
+        yield return new WaitForSeconds(15f);
+        activeAttack = false;
+        MarioAnim.SetFloat("AttackMoveMario", 0);
+        MarioAnim.SetBool("AttackActive", false);
+        MolotAnim.SetBool("Active", false);
+        Molot.SetActive(false);
+        MolotTrigger.ActiveMolot = false;
     }
 }

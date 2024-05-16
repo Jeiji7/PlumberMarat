@@ -9,13 +9,15 @@ public class DeadPlayer : MonoBehaviour
     public StatsMario stats;
     [Header("DeadScript")]
     public Animator MarioAnimation;
-    private float deathDistance = 2.5f;
+    private float deathDistance = 2.75f;
     private bool isMovingDown = false;
     private float maxPosY;
-    public static bool dontMove = false;
+    public static bool dontMove = false; // Mario нельз€ двигатьс€ при смерти
+    public static bool marioDead = false; //„тобы 100 очков не защитывало 
 
     void Start()
     {
+        marioDead = false;
         dontMove = false;
         Time.timeScale = 1;
         maxPosY = transform.position.y;
@@ -25,6 +27,8 @@ public class DeadPlayer : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            marioDead = true;
+            Move.onLadder = false;
             StartCoroutine(Die());
         }
     }
@@ -42,11 +46,10 @@ public class DeadPlayer : MonoBehaviour
         float distanceTraveled = Mathf.Max(0, maxPosY - transform.position.y);
         if (distanceTraveled > deathDistance && Exit_Lader.isDown == false)
         {
-            //MarioAnimation.SetFloat("isJumpingAnim", 0);
+            print(distanceTraveled);
             Vector3 deathPosition = transform.position;
             Move.tr.position = new Vector3(deathPosition.x, Move.tr.position.y, Move.tr.position.z);
             dontMove = true;
-            Move.onLadder = false;
             StartCoroutine(Die()); // «апускаем "смерть" персонажа
         }
     }
