@@ -17,6 +17,7 @@ public class AttackPlayer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
+            MarioAnim.SetFloat("isMoveAnim", 0);
             Molot.SetActive(true);
             activeAttack = true;
             MarioAnim.SetBool("AttackActive", true);

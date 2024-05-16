@@ -29,7 +29,7 @@ public class Move : MonoBehaviour
     public bool isJumping = false;
 
     [Header("Ladder")]
-    public bool onLadder;
+    public static bool onLadder;
     public bool canHorizontalMove = true;
 
     [Header("Отскок от стены")]
@@ -112,9 +112,9 @@ public class Move : MonoBehaviour
         }
 
         // Управление движением по лестнице
-        if (onLadder && AttackPlayer.activeAttack == false)
+        if (onLadder && AttackPlayer.activeAttack == false && DeadPlayer.dontMove == false)
         {
-
+            
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 MarioAnimation.SetFloat("isClimbAnim", 1);
@@ -127,6 +127,7 @@ public class Move : MonoBehaviour
             canHorizontalMove = false;
             rb.gravityScale = 0;
             rb.velocity = new Vector2(0, moveLadder * PlayerLadder);
+            
         }
         else
         {
@@ -135,6 +136,7 @@ public class Move : MonoBehaviour
             rb.gravityScale = 2.2f;
         }
 
+        
         // Отскок от стены
         if (isTouchingWall && !isWallJumping && !isGrounded)
         {

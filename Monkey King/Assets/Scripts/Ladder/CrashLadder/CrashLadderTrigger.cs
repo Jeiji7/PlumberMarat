@@ -31,7 +31,7 @@ public class CrashLadder : MonoBehaviour
             MarioAnimation.SetFloat("isClimbAnim", 0);
             Exit_Lader.isDown = false;
             isPlayerOnLadder = false;
-            playerMove.onLadder = false;
+            Move.onLadder = false;
             boxCollider2D.enabled = false;
             boxCollider2D.enabled = true;
             Move.isGrounded = false;
@@ -53,17 +53,17 @@ public class CrashLadder : MonoBehaviour
                 Move.tr.position = triggerCenter;
                 MarioAnimation.SetBool("isLadderAnim", true);
                 MarioAnimation.SetFloat("isClimbAnim", 1);
-                playerMove.onLadder = true;
+                Move.onLadder = true;
                 Move.isGrounded = false;
                 InvisibleWall.SetActive(true);
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
-                playerMove.onLadder = true;
+                Move.onLadder = true;
             }
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))
             {
-                playerMove.onLadder = false;
+                Move.onLadder = false;
             }
         }
     }

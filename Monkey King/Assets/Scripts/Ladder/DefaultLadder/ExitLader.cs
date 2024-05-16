@@ -33,7 +33,7 @@ public class Exit_Lader : MonoBehaviour
             MarioAnimation.SetFloat("isClimbAnim", 0);
             isDown = false;
             onLadder = false;
-            playerMove.onLadder = false;
+            Move.onLadder = false;
             floot.GetComponent<BoxCollider2D>().enabled = true;
             boxCollider2D.enabled = false;
             boxCollider2D.enabled = true;
@@ -55,7 +55,7 @@ public class Exit_Lader : MonoBehaviour
                 MarioAnimation.SetBool("isLadderAnim", true);
                 MarioAnimation.SetFloat("isClimbAnim", 1);
                 floot.GetComponent<BoxCollider2D>().enabled = false;
-                playerMove.onLadder = true;
+                Move.onLadder = true;
                 Move.isGrounded = false;
             }
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
@@ -67,12 +67,12 @@ public class Exit_Lader : MonoBehaviour
                 MarioAnimation.SetBool("isLadderAnim", true);
                 MarioAnimation.SetFloat("isClimbAnim", 1);
                 floot.GetComponent<BoxCollider2D>().enabled = false;
-                playerMove.onLadder = true;
+                Move.onLadder = true;
             }
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))
             {
                 floot.GetComponent<BoxCollider2D>().enabled = true;
-                playerMove.onLadder = false;
+                Move.onLadder = false;
             }
         }
     }

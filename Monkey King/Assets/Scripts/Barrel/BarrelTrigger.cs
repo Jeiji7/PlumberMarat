@@ -5,19 +5,21 @@ using UnityEngine;
 public class BarrelTrigger : MonoBehaviour
 {
     public Animator BarerrelAnim;
+    public GameObject BarerrelPrefab;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (CompareTag("Enemy"))
+        if (collision.CompareTag("Molot"))
         {
-            print("sex");
             BarerrelAnim.SetBool("LadderBarrel", true);
+            StartCoroutine(BarrelDestroy());
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+
+    public IEnumerator BarrelDestroy()
     {
-        if (CompareTag("Enemy"))
-        {
-            BarerrelAnim.SetBool("LadderBarrel", false);
-        }
+        StatsMario.MarioPoints += 500;
+        yield return new WaitForSeconds(0.6f);
+        Destroy(BarerrelPrefab);
     }
+   
 }

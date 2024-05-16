@@ -38,13 +38,13 @@ public class MoveMarioOnLadder : MonoBehaviour
                 if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
                 {
                     //print("ON Ladder");
-                    playerMove.onLadder = true;
+                    Move.onLadder = true;
                 }
 
                 if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
                 {
                     //print("Out Ladder");
-                    playerMove.onLadder = false;
+                    Move.onLadder = false;
                 }
             }
         }

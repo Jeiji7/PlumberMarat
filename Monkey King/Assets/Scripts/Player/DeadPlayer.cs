@@ -9,8 +9,8 @@ public class DeadPlayer : MonoBehaviour
     public StatsMario stats;
     [Header("DeadScript")]
     public Animator MarioAnimation;
-    private float deathDistance = 2.5f; 
-    private bool isMovingDown = false; 
+    private float deathDistance = 2.5f;
+    private bool isMovingDown = false;
     private float maxPosY;
     public static bool dontMove = false;
 
@@ -18,27 +18,35 @@ public class DeadPlayer : MonoBehaviour
     {
         dontMove = false;
         Time.timeScale = 1;
-        maxPosY = transform.position.y;   
+        maxPosY = transform.position.y;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            StartCoroutine(Die());
+        }
+    }
     void Update()
     {
-        if (transform.position.y < maxPosY )
+        if (transform.position.y < maxPosY)
         {
-            isMovingDown = true; 
+            isMovingDown = true;
         }
 
         if (isMovingDown && transform.position.y > maxPosY || Exit_Lader.isDown == true)
         {
-            maxPosY = transform.position.y; 
+            maxPosY = transform.position.y;
         }
-        float distanceTraveled = Mathf.Max(0, maxPosY - transform.position.y); 
+        float distanceTraveled = Mathf.Max(0, maxPosY - transform.position.y);
         if (distanceTraveled > deathDistance && Exit_Lader.isDown == false)
         {
             //MarioAnimation.SetFloat("isJumpingAnim", 0);
             Vector3 deathPosition = transform.position;
             Move.tr.position = new Vector3(deathPosition.x, Move.tr.position.y, Move.tr.position.z);
             dontMove = true;
+            Move.onLadder = false;
             StartCoroutine(Die()); // Запускаем "смерть" персонажа
         }
     }
@@ -57,6 +65,7 @@ public class DeadPlayer : MonoBehaviour
             stats.RefreshStats();
             SceneManager.LoadScene("GameSelection");
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

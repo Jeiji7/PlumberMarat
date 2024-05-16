@@ -9,6 +9,8 @@ TagManager:
   - LadderTrigger
   - Wall
   - BarrelTrigger
+  - Enemy
+  - Molot
   layers:
   - Default
   - TransparentFX

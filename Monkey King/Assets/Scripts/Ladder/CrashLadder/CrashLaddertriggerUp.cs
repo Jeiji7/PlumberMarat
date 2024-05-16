@@ -26,7 +26,7 @@ public class CrashLaddertriggerUp : MonoBehaviour
         {
             isPlayerOnLadder = false;
             flootLadder.GetComponent<BoxCollider2D>().enabled = true;
-            playerMove.onLadder = false;
+            Move.onLadder = false;
             print("0");
             InvisibleWall.SetActive(false);
         }
@@ -38,7 +38,7 @@ public class CrashLaddertriggerUp : MonoBehaviour
             if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 playerMove.canHorizontalMove = false;
-                playerMove.onLadder = true;
+                Move.onLadder = true;
                 flootLadder.GetComponent<BoxCollider2D>().enabled = false;
             }
         }
