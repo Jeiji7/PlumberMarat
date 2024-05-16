@@ -7224,6 +7224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BarerrelAnim: {fileID: 1460705069}
   BarerrelPrefab: {fileID: 470006673}
+  barrelCollider: {fileID: 1460705078}
 --- !u!60 &1460705078
 PolygonCollider2D:
   m_ObjectHideFlags: 0
