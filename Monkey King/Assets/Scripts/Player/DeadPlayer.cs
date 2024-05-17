@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class DeadPlayer : MonoBehaviour
 {
+    [Header("Menu")]
+    public GameObject DeadScreen;
     public StatsMario stats;
     [Header("DeadScript")]
     public Animator MarioAnimation;
@@ -27,6 +29,7 @@ public class DeadPlayer : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            dontMove = true;
             marioDead = true;
             Move.onLadder = false;
             StartCoroutine(Die());
@@ -65,6 +68,8 @@ public class DeadPlayer : MonoBehaviour
         {
             float currentScore = StatsMario.MarioPoints;
             PlayerPrefs.SetFloat("CurrentScore", currentScore);
+            DeadScreen.SetActive(true);
+            yield return new WaitForSecondsRealtime(4f);
             stats.RefreshStats();
             SceneManager.LoadScene("GameSelection");
         }

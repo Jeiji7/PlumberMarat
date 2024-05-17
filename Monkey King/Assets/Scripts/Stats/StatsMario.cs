@@ -14,19 +14,19 @@ public class StatsMario : MonoBehaviour
     [Header("MarioStats")]
     public static int _healthMario = 3;
     public static int _roundMario = 0;
-    public static int MarioBonus = 6000;
+    public static int MarioBonus = 5000;
     public static int MarioPoints = 0; 
 
     public void RefreshStats() //Смерть или вышел из игры
     {
         _healthMario = 3;
         _roundMario = 0;
-        MarioBonus = 6000;
+        MarioBonus = 5000;
         MarioPoints = 0;
     }
     public void RefreshBonus() //Смерть или вышел из игры
     {
-        MarioBonus = 6000;
+        MarioBonus = 5000;
     }
     private void Update()
     {

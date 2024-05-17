@@ -76,7 +76,6 @@ public class Move : MonoBehaviour
             else if(DeadPlayer.dontMove == false && AttackPlayer.activeAttack == true)
             {
                 MarioAnimation.SetFloat("AttackMoveMario", MathF.Abs(move));
-                //MarioAnimation.SetBool("AttackActive", false);
                 rb.velocity = new Vector2(move * speedPlayer, rb.velocity.y);
                 // ѕоворот персонажа только при движении
                 if (move < 0)
@@ -92,6 +91,7 @@ public class Move : MonoBehaviour
                 MolotAnim.SetBool("Active", false);
                 MarioAnimation.SetFloat("AttackMoveMario", 0);
                 MarioAnimation.SetFloat("isMoveAnim", 0);
+                MarioAnimation.SetBool("DeadMario", true);
                 return;
             }
             else if (DeadPlayer.dontMove == true && AttackPlayer.activeAttack == false)

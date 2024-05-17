@@ -59,12 +59,10 @@ public class FollowPathUpdate : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, pointInPath.Current.position, Time.deltaTime * speed);
             if (Mathf.Abs(tr.position.x - lastPosition) < positionTolerance)
             {
-                print("есть контакт");
                 BarrelAnim.SetBool("LadderBarrel", true);
             }
             else
             {
-                print("задница");
                 BarrelAnim.SetBool("LadderBarrel", false);
             }
         }
