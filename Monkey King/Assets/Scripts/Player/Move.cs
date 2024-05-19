@@ -54,11 +54,6 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K)) 
-        {
-            StatsMario.MarioPoints += 100;
-            StatsMario.MarioBonus -= 100;
-        }
         float moveLadder = Input.GetAxis("Vertical");
         if (canHorizontalMove && !isWallJumping)
         {

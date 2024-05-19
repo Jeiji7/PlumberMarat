@@ -17,22 +17,6 @@ public class AttackPlayer : MonoBehaviour
     {
         if (MolotTrigger.ActiveMolot == true)
             StartCoroutine(Attack());
-        //if (Input.GetKeyDown(KeyCode.J))
-        //{
-        //    MarioAnim.SetFloat("isMoveAnim", 0);
-        //    Molot.SetActive(true);
-        //    activeAttack = true;
-        //    MarioAnim.SetBool("AttackActive", true);
-        //    MolotAnim.SetBool("Active",true);
-        //}
-        //else if(Input.GetKeyDown(KeyCode.H))
-        //{
-        //    activeAttack = false;
-        //    MarioAnim.SetFloat("AttackMoveMario", 0);
-        //    MarioAnim.SetBool("AttackActive", false);
-        //    MolotAnim.SetBool("Active", false);
-        //    Molot.SetActive(false);
-        //}
     }
     public IEnumerator Attack()
     {

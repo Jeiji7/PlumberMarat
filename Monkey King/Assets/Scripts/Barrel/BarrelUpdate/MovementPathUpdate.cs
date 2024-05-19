@@ -19,6 +19,7 @@ public class MovementPathUpdate : MonoBehaviour
     void HandlePathCompleted() // Обработчик завершения цикла
     {
         Destroy(barrel); // Уничтожаем объект после завершения цикла
+        Destroy(gameObject);
     }
     public void OnDrawGizmos()
     {

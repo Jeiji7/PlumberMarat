@@ -21,12 +21,13 @@ public class SpaunerFire : MonoBehaviour
     {
         if(fire > 1)
         {
-            Instantiate(fireSpaunOne, transform.position, Quaternion.identity);
+            Instantiate(fireSpaunOne, new Vector3(-30.66f,-29.62f,-5.4f), Quaternion.identity);
             fire--;
         }
-        else if (fire == 1 && StatsMario.MarioBonus <= (4000 + StatsMario._roundMario * 1000))
+        else if (fire == 1 && StatsMario.MarioBonus <= (4200 + StatsMario._roundMario * 1000))
         {
-            Instantiate(fireSpaunOne, transform.position, Quaternion.identity);
+            Instantiate(fireSpaunTwo, new Vector3(-30.66f, -29.62f, -5.4f), Quaternion.identity);
+            fire--;
         }
     }
 }

@@ -14,7 +14,7 @@ public class BarrelTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Molot"))
         {
-            BarerrelAnim.SetBool("LadderBarrel", true);
+            BarerrelAnim.SetBool("Crash", true);
             followPath.speed = 0f;
             StartCoroutine(BarrelDestroy());
         }
