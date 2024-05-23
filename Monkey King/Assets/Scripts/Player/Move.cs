@@ -7,6 +7,11 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    [Header("Music")]
+    public AudioClip musicGame;
+    private AudioSource musicSource;
+    public MusicGames musics;
+
     [Header("Animation")]
     public Animator MarioAnimation;
     public static bool LadderFinal = false;
@@ -42,6 +47,8 @@ public class Move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<Transform>();
+        musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource.clip = musicGame;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -149,6 +156,9 @@ public class Move : MonoBehaviour
     // Включение возможности отскока от стены после некоторого времени
     private IEnumerator EnableWallJump()
     {
+        musics.musicSource.Pause();
+        musicSource.Play();
+        musics.musicSource.Play();
         isWallJumping = true;
         MarioAnimation.SetFloat("isJumpAnim", 1);
         rb.velocity = new Vector2(tr.localScale.x * wallJumpForce, rb.velocity.y);
@@ -160,6 +170,9 @@ public class Move : MonoBehaviour
     }
     private IEnumerator Jumping()
     {
+        musics.musicSource.Pause();
+        musicSource.Play();
+        musics.musicSource.Play();
         MarioAnimation.SetFloat("isJumpAnim", 1);
         rb.AddForce(new Vector2(0, 2800));
         yield return new WaitForSeconds(0.72f);

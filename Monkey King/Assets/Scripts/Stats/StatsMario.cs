@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class StatsMario : MonoBehaviour
 {
-    public bool Active = true;
+    public static bool Active = true;
     [Header("TextCanvas")]
     public Text textPoint;
     public Text textBonus;
@@ -29,6 +29,13 @@ public class StatsMario : MonoBehaviour
     {
         MarioBonus = 5000 + 1000 * _roundMario;
     }
+    public void FinishRound()
+    {
+        MarioPoints = MarioPoints + MarioBonus;
+        PlusHealth();
+        _roundMario += 1;
+        MarioBonus = 5000 + 1000 * _roundMario;
+    }
     private void Update()
     {
         textPoint.text = ($"POINT: {MarioPoints}");
@@ -49,5 +56,14 @@ public class StatsMario : MonoBehaviour
             MarioBonus -= 100;
         }
         Active = true;
+    }
+    public void PlusHealth()
+    {
+        if (_healthMario >= 3)
+        {
+            _healthMario += 0;
+        }
+        else
+            _healthMario += 1;
     }
 }

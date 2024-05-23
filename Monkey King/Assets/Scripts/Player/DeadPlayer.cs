@@ -10,6 +10,7 @@ public class DeadPlayer : MonoBehaviour
     public GameObject DeadScreen;
     public StatsMario stats;
     [Header("DeadScript")]
+    public bool DeadOne = true;
     public Animator MarioAnimation;
     private float deathDistance = 2.75f;
     private bool isMovingDown = false;
@@ -17,8 +18,14 @@ public class DeadPlayer : MonoBehaviour
     public static bool dontMove = false; // Mario нельзя двигаться при смерти
     public static bool marioDead = false; //Чтобы 100 очков не защитывало 
 
+    [Header("Music")]
+    public AudioClip musicGame;
+    private AudioSource musicSource;
+    public MusicGames musics;
     void Start()
     {
+        musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource.clip = musicGame;
         marioDead = false;
         dontMove = false;
         Time.timeScale = 1;
@@ -27,8 +34,9 @@ public class DeadPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && DeadOne == true)
         {
+            DeadOne = false;
             dontMove = true;
             marioDead = true;
             Move.onLadder = false;
@@ -58,9 +66,11 @@ public class DeadPlayer : MonoBehaviour
     }
     public IEnumerator Die()
     {
+        musics.musicSource.Stop();
+        musicSource.Play();
         print("Ты умер");
         MarioAnimation.SetBool("DeadMario", true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         Time.timeScale = 0;
         StatsMario._healthMario -= 1;
         stats.RefreshBonus();

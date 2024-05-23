@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 1427511414642821012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.56, y: -10.19, z: 0}
+  m_LocalPosition: {x: 20.7, y: -10.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -238,6 +238,8 @@ MonoBehaviour:
   BarerrelPrefab: {fileID: 3501197891344327351}
   barrelCollider: {fileID: 134551718559794836}
   followPath: {fileID: 2294301764456159027}
+  musicGame: {fileID: 8300000, guid: 62056e2a1b919b04f86ff7c2db61f18d, type: 3}
+  musics: {fileID: 0}
 --- !u!60 &134551718559794836
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -590,7 +592,7 @@ Transform:
   m_GameObject: {fileID: 5129791696324097099}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.67, y: -12.93, z: 0}
+  m_LocalPosition: {x: 23.3, y: -12.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -867,7 +869,7 @@ Transform:
   m_GameObject: {fileID: 7422965490819006514}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.05, y: -8.23, z: 0}
+  m_LocalPosition: {x: -6, y: -8.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -929,7 +931,7 @@ Transform:
   m_GameObject: {fileID: 7938358290857082628}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.13, y: -5.53, z: 0}
+  m_LocalPosition: {x: -3.3, y: -5.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

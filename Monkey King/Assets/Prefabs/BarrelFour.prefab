@@ -267,6 +267,8 @@ MonoBehaviour:
   BarerrelPrefab: {fileID: 8996706753509755676}
   barrelCollider: {fileID: 2313957574341107941}
   followPath: {fileID: 1512068854344974875}
+  musicGame: {fileID: 8300000, guid: 62056e2a1b919b04f86ff7c2db61f18d, type: 3}
+  musics: {fileID: 0}
 --- !u!60 &2313957574341107941
 PolygonCollider2D:
   m_ObjectHideFlags: 0

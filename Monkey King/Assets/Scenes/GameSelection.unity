@@ -740,14 +740,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0596158813efcaf438476796b7deb9fa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1154,14 +1154,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.051886797, b: 0.9130168, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 541f9a4fae2f3b34e80415e081096c1a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1605,7 +1605,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1008733451}
+        m_TargetAssemblyTypeName: Music, Assembly-CSharp
+        m_MethodName: ToggleMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &620919115
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2451,14 +2463,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1d5083785eb826949a3c0cfc93c4572c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2622,6 +2634,7 @@ GameObject:
   - component: {fileID: 1008733446}
   - component: {fileID: 1008733449}
   - component: {fileID: 1008733450}
+  - component: {fileID: 1008733451}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2734,6 +2747,21 @@ MonoBehaviour:
   - {fileID: 906888324}
   - {fileID: 148272994}
   - {fileID: 398543478}
+--- !u!114 &1008733451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008733445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17a97dbb0104674b8618f0afea43aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicBad: {fileID: 579469372}
+  musicGame: {fileID: 8300000, guid: a7fc815241a8c374c91a8e0fee945ef3, type: 3}
+  musicSource: {fileID: 0}
 --- !u!1 &1148209389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2941,7 +2969,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.009000001, y: 0.32900003}
   m_AnchorMax: {x: 0.326, y: 0.6655494}
-  m_AnchoredPosition: {x: 0.2000122, y: 0.5}
+  m_AnchoredPosition: {x: 0.19995117, y: 0.5}
   m_SizeDelta: {x: -157, y: -31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1243131630
@@ -3229,7 +3257,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 30cd9081706ef3c468278ae0063db6a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4191,7 +4219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.24052085, y: 0.025}
   m_AnchorMax: {x: 0.7616458, y: 0.19370373}
-  m_AnchoredPosition: {x: -1.5, y: -0.000061035156}
+  m_AnchoredPosition: {x: -1.5, y: 0}
   m_SizeDelta: {x: -5, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1946207875

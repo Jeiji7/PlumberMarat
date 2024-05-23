@@ -7,7 +7,7 @@ public class Instruction : MonoBehaviour
 
     public GameObject instruction;
     public GameObject[] gameObjects; // Публичный массив игровых объектов
-    private int currentIndex = -1;
+    private int currentIndex = 0;
 
     public void EnterInstruction()
     {

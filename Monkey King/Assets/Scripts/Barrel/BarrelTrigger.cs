@@ -9,7 +9,16 @@ public class BarrelTrigger : MonoBehaviour
     public PolygonCollider2D barrelCollider;
     public FollowPathUpdate followPath;
 
-  
+    [Header("Music")]
+    public AudioClip musicGame;
+    private AudioSource musicSource;
+
+    private void Start()
+    {
+        musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource.clip = musicGame;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Molot"))
@@ -22,6 +31,7 @@ public class BarrelTrigger : MonoBehaviour
 
     public IEnumerator BarrelDestroy()
     {
+        musicSource.Play();
         Time.timeScale = 0.5f;
         StatsMario.MarioPoints += 500;
         barrelCollider.enabled = false;

@@ -230,6 +230,8 @@ MonoBehaviour:
   BarerrelPrefab: {fileID: 711469080685709729}
   barrelCollider: {fileID: 922330765997250807}
   followPath: {fileID: 5783363197897159547}
+  musicGame: {fileID: 8300000, guid: 62056e2a1b919b04f86ff7c2db61f18d, type: 3}
+  musics: {fileID: 0}
 --- !u!1 &1228007858707156734
 GameObject:
   m_ObjectHideFlags: 0
