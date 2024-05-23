@@ -2270,6 +2270,8 @@ MonoBehaviour:
   stats: {fileID: 327199209}
   activeFinal: 0
   Love: {fileID: 24252090}
+  musicGame: {fileID: 8300000, guid: 3b8abddad03b8bb4a8d203bdba6b7e4c, type: 3}
+  musics: {fileID: 519420034}
 --- !u!1 &497401391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4169,7 +4171,7 @@ Transform:
   m_GameObject: {fileID: 820950996}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.31, y: -29.15, z: -5}
+  m_LocalPosition: {x: -28.39, y: -29.08, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

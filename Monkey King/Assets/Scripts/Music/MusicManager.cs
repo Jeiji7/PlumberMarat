@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour
 {
     public static bool isPlayingMusic = true;
-    public static int isActiveCheck;
-
-    private void Start()
-    {
-        isActiveCheck = 0;
-    }
+    public static int isActiveCheck = 0;
 
 }

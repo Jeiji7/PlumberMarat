@@ -8,6 +8,15 @@ public class FinallTrigger : MonoBehaviour
     public StatsMario stats;
     public bool activeFinal = false;
     public GameObject Love;
+    [Header("Music")]
+    public AudioClip musicGame;
+    private AudioSource musicSource;
+    public MusicGames musics;
+    private void Start()
+    {
+        musicSource = gameObject.AddComponent<AudioSource>();
+        musicSource.clip = musicGame;
+    }
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -26,6 +35,8 @@ public class FinallTrigger : MonoBehaviour
 
     private IEnumerator Finish()
     {
+        musics.musicSource.Stop();
+        musicSource.Play();
         StatsMario.Active = false;
         Love.SetActive(true);
         Time.timeScale = 0f;
