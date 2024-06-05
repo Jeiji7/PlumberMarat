@@ -135,7 +135,7 @@ public class Move : MonoBehaviour
         {
             MarioAnimation.SetBool("isLadderAnim", false);
             canHorizontalMove = true;
-            rb.gravityScale = 2.2f;
+            rb.gravityScale = 2.3f;
         }
 
         
@@ -156,9 +156,7 @@ public class Move : MonoBehaviour
     // Включение возможности отскока от стены после некоторого времени
     private IEnumerator EnableWallJump()
     {
-        musics.musicSource.Pause();
         musicSource.Play();
-        musics.musicSource.Play();
         isWallJumping = true;
         MarioAnimation.SetFloat("isJumpAnim", 1);
         rb.velocity = new Vector2(tr.localScale.x * wallJumpForce, rb.velocity.y);
@@ -170,11 +168,9 @@ public class Move : MonoBehaviour
     }
     private IEnumerator Jumping()
     {
-        musics.musicSource.Pause();
         musicSource.Play();
-        musics.musicSource.Play();
         MarioAnimation.SetFloat("isJumpAnim", 1);
-        rb.AddForce(new Vector2(0, 2800));
+        rb.AddForce(new Vector2(0, 2700));
         yield return new WaitForSeconds(0.72f);
         MarioAnimation.SetFloat("isJumpAnim", 0);
         MarioAnimation.SetBool("finalJump", true);

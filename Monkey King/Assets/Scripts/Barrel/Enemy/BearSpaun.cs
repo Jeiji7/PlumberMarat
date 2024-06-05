@@ -7,6 +7,8 @@ public class BearSpaun : MonoBehaviour
     public Animator BearAnim;
     public GameObject CoroutineGameObjectOne;
     public GameObject CoroutineGameObjectTwo;
+    public Transform SpaunBearBarrel;
+    public Transform SpaunVerticalBarrel;
     public GameObject[] objectsToSpawn;
     public int lastSpawnedObject = 8;
     public int currentSpawnedObject = 9;
@@ -54,9 +56,10 @@ public class BearSpaun : MonoBehaviour
     }
     private IEnumerator CoroutineOneSpaun()
     {
+        Vector3 pos = SpaunVerticalBarrel.transform.position;
         BearAnim.SetBool("ThrowTwo", true);
         yield return new WaitForSeconds(0.50f);
-        Instantiate(CoroutineGameObjectOne, new Vector3(-28.81f, -5.22f, -5.318298f), Quaternion.identity);
+        Instantiate(CoroutineGameObjectOne, pos, Quaternion.identity);
         BearAnim.SetBool("ThrowTwo", false);
         BearAnim.SetBool("Champion", true);
         yield return new WaitForSeconds(2.3f);
@@ -65,9 +68,10 @@ public class BearSpaun : MonoBehaviour
     }
     private IEnumerator CoroutineTwoSpaun()
     {
+        Vector3 pos = SpaunVerticalBarrel.transform.position;
         BearAnim.SetBool("ThrowTwo", true);
         yield return new WaitForSeconds(0.50f);
-        Instantiate(CoroutineGameObjectTwo, new Vector3(-28.81f, -5.22f, -5.318298f), Quaternion.identity);
+        Instantiate(CoroutineGameObjectTwo, pos, Quaternion.identity);
         BearAnim.SetBool("ThrowTwo", false);
         BearAnim.SetBool("Champion", true);
         yield return new WaitForSeconds(2.3f);
@@ -76,10 +80,11 @@ public class BearSpaun : MonoBehaviour
     }
     private IEnumerator CoroutineTreeDefalt()
     {
+        Vector3 pos =  SpaunBearBarrel.transform.position;
         BearAnim.SetBool("ThrowOne", true);
         yield return new WaitForSeconds(0.5f);
         // Спауним объект
-        Instantiate(objectsToSpawn[randomIndex], new Vector3(-28.29f, -5.41f, -4.7f), Quaternion.identity);
+        Instantiate(objectsToSpawn[randomIndex], pos, Quaternion.identity);
         lastSpawnedObject = currentSpawnedObject;
         currentSpawnedObject = randomIndex;
         yield return new WaitForSeconds(0.4f);

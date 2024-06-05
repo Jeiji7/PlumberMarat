@@ -5,33 +5,28 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public float[] topScores = new float[10]; // Массив для 10 лучших результатов
+    public int[] topRounds = new int[10]; // Массив для количества раундов
+    private GameDataManager gameDataManager;
 
     private void Start()
     {
-        //DontDestroyOnLoad(gameObject);
-        // Загрузить лучшие результаты из PlayerPrefs при запуске
-        LoadScoresFromPlayerPrefs();
-
-        // Проверить, есть ли новый результат из игровой сцены
-        float currentScore = PlayerPrefs.GetFloat("CurrentScore", 0);
-        if (currentScore > 0)
-        {
-            UpdateTopScores(currentScore);
-            PlayerPrefs.DeleteKey("CurrentScore"); // Удалить ключ после использования
-        }
+        gameDataManager = FindObjectOfType<GameDataManager>();
+        LoadScoresFromDataManager();
     }
 
-    private void LoadScoresFromPlayerPrefs()
+    private void LoadScoresFromDataManager()
     {
         for (int i = 0; i < topScores.Length; i++)
         {
-            topScores[i] = PlayerPrefs.GetFloat("TopScore" + i, 0);
+            topScores[i] = gameDataManager.LoadScore(i);
+            topRounds[i] = gameDataManager.LoadRound(i);
         }
-        Debug.Log("opop");
     }
 
-    private void UpdateTopScores(float newScore)
+    public void UpdateTopScores(float newScore, int newRound)
     {
+        gameDataManager.SaveData(newScore, newRound);
+
         // Добавить новый результат в массив
         int lowestScoreIndex = -1;
         for (int i = 0; i < topScores.Length; i++)
@@ -42,9 +37,11 @@ public class ScoreManager : MonoBehaviour
                 for (int j = topScores.Length - 1; j > i; j--)
                 {
                     topScores[j] = topScores[j - 1];
+                    topRounds[j] = topRounds[j - 1];
                 }
                 // Вставить новый результат
                 topScores[i] = newScore;
+                topRounds[i] = newRound;
                 break;
             }
             else if (topScores[i] == 0 && lowestScoreIndex == -1)
@@ -53,18 +50,5 @@ public class ScoreManager : MonoBehaviour
                 lowestScoreIndex = i;
             }
         }
-
-        // Если новый результат не попал в топ-10, но есть свободные места, добавить его
-        if (lowestScoreIndex != -1 && newScore > 0)
-        {
-            topScores[lowestScoreIndex] = newScore;
-        }
-
-        // Сохранить отсортированный массив в PlayerPrefs
-        for (int i = 0; i < topScores.Length; i++)
-        {
-            PlayerPrefs.SetFloat("TopScore" + i, topScores[i]);
-        }
-        Debug.Log("opop22");
     }
 }

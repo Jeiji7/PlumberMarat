@@ -25,7 +25,7 @@ public class AttackPlayer : MonoBehaviour
         activeAttack = true;
         MarioAnim.SetBool("AttackActive", true);
         MolotAnim.SetBool("Active", true);
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(13f);
         activeAttack = false;
         MarioAnim.SetFloat("AttackMoveMario", 0);
         MarioAnim.SetBool("AttackActive", false);

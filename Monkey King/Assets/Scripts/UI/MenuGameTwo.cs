@@ -19,7 +19,18 @@ public class MenuGameTwo : MonoBehaviour
     {
         SceneManager.LoadScene("GameSceneNumOne");
     }
-
+    public void PlayGameOneLvl()
+    {
+        SceneManager.LoadScene("GameSceneNumOne");
+    }
+    public void PlayGameTwoLvl()
+    {
+        SceneManager.LoadScene("GameSceneNumTwo");
+    }
+    public void PlayGameTreeLvl()
+    {
+        SceneManager.LoadScene("FinalScene");
+    }
     public void ExitMainMenu()
     {
         SceneManager.LoadScene("Menu");

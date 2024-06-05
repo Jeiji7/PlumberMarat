@@ -18,6 +18,11 @@ public class StatsMario : MonoBehaviour
     public static int MarioBonus = 5000;
     public static int MarioPoints = 0;
 
+    private void Start()
+    {
+        Active = true;
+    }
+
     public void RefreshStats() //Смерть или вышел из игры
     {
         _healthMario = 3;
@@ -36,21 +41,23 @@ public class StatsMario : MonoBehaviour
         _roundMario += 1;
         MarioBonus = 5000 + 1000 * _roundMario;
     }
+
     private void Update()
     {
         textPoint.text = ($"POINT: {MarioPoints}");
         textBonus.text = ($"{MarioBonus}");
         textLife.text = ($"M: {_healthMario}");
         textRounds.text = ($"L: {_roundMario}");
-        if (Active == true)
+        if (Active == true && FinalAigul.ActiveStats == true)
         {
+            print("lox");
             Active = false;
             StartCoroutine(BonusPoint());
         }
     }
     private IEnumerator BonusPoint()
     {
-        yield return new WaitForSeconds(1.66f);
+        yield return new WaitForSeconds(1.9f);
         if (MarioBonus > 0)
         {
             MarioBonus -= 100;

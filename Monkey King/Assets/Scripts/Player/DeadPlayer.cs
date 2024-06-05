@@ -9,6 +9,7 @@ public class DeadPlayer : MonoBehaviour
     [Header("Menu")]
     public GameObject DeadScreen;
     public StatsMario stats;
+    public GameDataManager gameDataManager;
     [Header("DeadScript")]
     public bool DeadOne = true;
     public Animator MarioAnimation;
@@ -69,21 +70,29 @@ public class DeadPlayer : MonoBehaviour
         musics.musicSource.Stop();
         musicSource.Play();
         print("Ты умер");
+        MarioAnimation.SetFloat("isClimbAnim", 0);
+        MarioAnimation.SetBool("isLadderAnim", false);
         MarioAnimation.SetBool("DeadMario", true);
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0;
         StatsMario._healthMario -= 1;
-        stats.RefreshBonus();
+        
         if (StatsMario._healthMario == 0)
         {
-            float currentScore = StatsMario.MarioPoints;
-            PlayerPrefs.SetFloat("CurrentScore", currentScore);
+            //float currentScore = StatsMario.MarioPoints;
+            //int currentRound = StatsMario._roundMario;
+            //PlayerPrefs.SetFloat("CurrentScore", currentScore);
+            //PlayerPrefs.SetInt("CurrentRound", currentRound);
+            gameDataManager.SaveData(StatsMario.MarioPoints, StatsMario._roundMario);
             DeadScreen.SetActive(true);
             yield return new WaitForSecondsRealtime(4f);
             stats.RefreshStats();
             SceneManager.LoadScene("GameSelection");
         }
         else
+        {
+            stats.RefreshBonus();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

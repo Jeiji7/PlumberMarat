@@ -642,7 +642,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1008733449}
         m_TargetAssemblyTypeName: MenuGameTwo, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: PlayGameTreeLvl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1056,7 +1056,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1008733449}
         m_TargetAssemblyTypeName: MenuGameTwo, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: PlayGameTwoLvl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3830,7 +3830,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1008733449}
         m_TargetAssemblyTypeName: MenuGameTwo, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: PlayGameOneLvl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
